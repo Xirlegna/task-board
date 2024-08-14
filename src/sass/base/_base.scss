@@ -5,3 +5,25 @@
   padding: 0;
   box-sizing: inherit;
 }
+
+@font-face {
+  font-family: 'Courier Prime';
+  src: url(~/public/fonts/CourierPrime-Regular.ttf) format('truetype');
+}
+
+html {
+  font-family: 'Courier Prime', monospace;
+  font-weight: 400;
+}
+
+#root {
+  display: grid;
+  grid-template-rows: min-content 1fr;
+  grid-template-columns: min-content 1fr;
+  height: 100vh;
+  width: 100%;
+
+  .header {
+    grid-column: 1 / -1;
+  }
+}

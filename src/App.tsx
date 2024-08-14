@@ -1,11 +1,17 @@
+import Aside from './components/Aside/Aside';
 import Header from './components/Header/Header';
+
+import Routes from './components/AppRoutes/AppRoutes';
 
 const App: React.FC = () => {
   return (
-    <div>
+    <>
       <Header />
-      <h4>main!</h4>
-    </div>
+      <Aside />
+      <main>
+        <Routes />
+      </main>
+    </>
   );
 };
 

@@ -1,0 +1,11 @@
+.aside {
+  background-color: #f7f7f7;
+  padding: 16px;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style-type: none;
+}
