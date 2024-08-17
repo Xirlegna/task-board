@@ -10,7 +10,6 @@ app.on('ready', () => {
     frame: false,
     icon: path.join(__dirname, '../public/icon.ico'),
     minimizable: true,
-    resizable: false,
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
