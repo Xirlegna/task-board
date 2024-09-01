@@ -1,7 +1,7 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'path';
 
-import { EventName } from './enum/EventName';
+import { EventName } from './common/enum/EventName';
 
 app.on('ready', () => {
   const mainWindow = new BrowserWindow({
