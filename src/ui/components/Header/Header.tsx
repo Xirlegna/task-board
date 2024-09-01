@@ -22,10 +22,17 @@ const Header: React.FC = () => {
       </div>
 
       <div className="header__actions">
-        <button className="header__action-btn" onClick={window.minimize}>
+        <button
+          type="button"
+          aria-label="minimize"
+          className="header__action-btn"
+          onClick={window.minimize}
+        >
           <MinMaxIcon />
         </button>
         <button
+          type="button"
+          aria-label="resize"
           className="header__action-btn"
           onClick={() => {
             window.resize();
@@ -35,6 +42,8 @@ const Header: React.FC = () => {
           {maximized ? <ResizeMinIcon /> : <ResizeMaxIcon />}
         </button>
         <button
+          type="button"
+          aria-label="close"
           className="header__action-btn header__action-btn--red"
           onClick={window.close}
         >
