@@ -17,7 +17,7 @@ app.on('ready', () => {
     },
   });
 
-  mainWindow.loadFile('index.html');
+  mainWindow.loadFile(path.join(__dirname, 'index.html'));
 });
 
 ipcMain.on(EventName.APP_MINIMIZE, () => {
