@@ -1,8 +1,10 @@
 {
   "name": "task-board",
+  "main": "./out/electron.js",
   "version": "0.0.1",
   "scripts": {
     "build": "webpack --config ./webpack.config.js",
+    "package": "webpack --config ./webpack.prod.js && electron-builder build && npx rimraf out",
     "dev": "webpack serve --config webpack.config.js",
     "start": "npm run build && electron ./dist/electron.js",
     "test": "vitest",
@@ -30,9 +32,11 @@
     "css-loader": "^7.1.2",
     "cypress": "^13.13.3",
     "electron": "^31.3.1",
+    "electron-builder": "^25.0.5",
     "html-webpack-plugin": "^5.6.0",
     "jsdom": "^25.0.0",
     "mini-css-extract-plugin": "^2.9.0",
+    "rimraf": "^6.0.1",
     "sass": "^1.77.8",
     "sass-loader": "^16.0.0",
     "ts-loader": "^9.5.1",

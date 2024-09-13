@@ -1,0 +1,11 @@
+appId: 'github.com/Xirlegna/task-board'
+productName: 'Task Board'
+
+directories:
+  output: ./package
+
+win:
+  artifactName: ${name}-${version}-windows-${arch}.${ext}
+  icon: ./public/icon.ico
+  target:
+    - { target: nsis }
