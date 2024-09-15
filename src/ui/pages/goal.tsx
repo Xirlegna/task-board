@@ -3,10 +3,10 @@ import { ipcRenderer } from 'electron';
 import { v4 as uuidv4 } from 'uuid';
 
 import { EventName } from '../../common/enum/EventName';
-import { GoalModel } from '../../common/interface/goal';
+import { GoalModel } from '../../common/interface/GoalModel';
 
 const GoalPage: React.FC = () => {
-  const { loading, goals, addGoal } = useGoal();
+  const { loading, goals, createGoal, deleteGoal } = useGoal();
 
   return (
     <>
@@ -15,12 +15,19 @@ const GoalPage: React.FC = () => {
         <div>loading...</div>
       ) : (
         <>
-          <button type="button" onClick={addGoal}>
+          <button type="button" onClick={createGoal}>
             add
           </button>
           <ul>
             {goals.map((goal) => (
-              <li key={goal.id}>{goal.name}</li>
+              <li key={goal.id}>
+                <span>
+                  {goal.name} - {goal.id}
+                </span>
+                <button type="button" onClick={() => deleteGoal(goal.id)}>
+                  delete
+                </button>
+              </li>
             ))}
           </ul>
         </>
@@ -46,12 +53,17 @@ const useGoal = () => {
     };
   }, []);
 
-  const addGoal = () => {
+  const createGoal = () => {
     setLoading(true);
     ipcRenderer.send(EventName.GOAL_ADD, { id: uuidv4(), name: 'Test goal' });
   };
 
-  return { loading, goals, addGoal };
+  const deleteGoal = (id: string) => {
+    setLoading(true);
+    ipcRenderer.send(EventName.GOAL_DELETE, id);
+  };
+
+  return { loading, goals, createGoal, deleteGoal };
 };
 
 export default GoalPage;

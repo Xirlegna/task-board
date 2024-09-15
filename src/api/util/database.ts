@@ -1,6 +1,6 @@
 import fs from 'fs';
 
-import { GoalModel } from '../../common/interface/goal';
+import { GoalModel } from '../../common/interface/GoalModel';
 
 const BasePath = `${process.env.APPDATA}/task-board`;
 

@@ -7,4 +7,5 @@ export enum EventName {
   /** GOAL */
   GOAL_LIST = 'goal:list',
   GOAL_ADD = 'goal:add',
+  GOAL_DELETE = 'goal:delete',
 }

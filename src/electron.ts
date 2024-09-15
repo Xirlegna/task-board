@@ -1,9 +1,9 @@
 import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'path';
 
-import { addGoal, listGoals } from './api/controllers/goal';
+import { createGoal, deleteGoal, listGoals } from './api/controllers/goal';
 import { EventName } from './common/enum/EventName';
-import { GoalModel } from './common/interface/goal';
+import { GoalModel } from './common/interface/GoalModel';
 
 let mainWindow: BrowserWindow;
 
@@ -40,6 +40,10 @@ ipcMain.on(EventName.GOAL_LIST, (event) => {
   listGoals().then((res) => event.sender.send(EventName.GOAL_LIST, res));
 });
 
-ipcMain.on(EventName.GOAL_ADD, (event, arg: GoalModel) => {
-  addGoal(arg).then((res) => event.sender.send(EventName.GOAL_LIST, res));
+ipcMain.on(EventName.GOAL_ADD, (event, goal: GoalModel) => {
+  createGoal(goal).then((res) => event.sender.send(EventName.GOAL_LIST, res));
+});
+
+ipcMain.on(EventName.GOAL_DELETE, (event, id: string) => {
+  deleteGoal(id).then((res) => event.sender.send(EventName.GOAL_LIST, res));
 });
