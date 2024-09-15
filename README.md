@@ -6,3 +6,5 @@
     alt='Task Board brand icon'
   >
 </p>
+
+## Project Description

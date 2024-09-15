@@ -1,7 +1,7 @@
 {
   "name": "task-board",
   "main": "./out/electron.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "build": "webpack --config ./webpack.config.js",
     "package": "webpack --config ./webpack.prod.js && electron-builder build && npx rimraf out",
