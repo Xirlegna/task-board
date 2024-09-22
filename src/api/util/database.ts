@@ -1,11 +1,13 @@
 import fs from 'fs';
 
 import { GoalModel } from '../../common/interface/GoalModel';
+import { TaskModel } from '../../common/interface/TaskModel';
 
 const BasePath = `${process.env.APPDATA}/task-board`;
 
 type DB = {
   goals?: GoalModel[];
+  tasks?: TaskModel[];
 };
 
 class Database {
