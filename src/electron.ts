@@ -1,14 +1,10 @@
-import { app, BrowserWindow, ipcMain } from 'electron';
+import { app, BrowserWindow } from 'electron';
 import path from 'path';
-
-import { EventName } from './common/enum/EventName';
 
 import './api/adapters';
 
-let mainWindow: BrowserWindow;
-
 app.on('ready', () => {
-  mainWindow = new BrowserWindow({
+  const mainWindow = new BrowserWindow({
     height: 600,
     width: 800,
     frame: false,
@@ -23,15 +19,3 @@ app.on('ready', () => {
 
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
 });
-
-ipcMain.on(EventName.APP_MINIMIZE, () => {
-  BrowserWindow.getFocusedWindow().minimize();
-});
-
-ipcMain.on(EventName.APP_RESIZE, () => {
-  const window = BrowserWindow.getFocusedWindow();
-
-  window.isMaximized() ? window.unmaximize() : window.maximize();
-});
-
-ipcMain.on(EventName.APP_CLOSE, () => app.quit());

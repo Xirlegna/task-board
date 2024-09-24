@@ -1,0 +1,56 @@
+.side-form {
+  overflow: hidden;
+  background-color: #fff;
+  border-top-left-radius: 8px;
+  min-width: 336px;
+
+  animation: floatIn 0.5s;
+
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    padding: 16px;
+    background-color: #f7f7f7;
+    font-size: 20px;
+    font-weight: 400;
+    border-bottom: 1px solid #e3e3e3;
+  }
+
+  &__close-btn {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-radius: 4px;
+    padding: 8px 8px 4px 8px;
+
+    &:hover {
+      background-color: #fff;
+    }
+  }
+
+  &--float-out {
+    animation: floatOut 0.5s;
+    transform: translateX(100%);
+  }
+}
+
+@keyframes floatIn {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes floatOut {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}

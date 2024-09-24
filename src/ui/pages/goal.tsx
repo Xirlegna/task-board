@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react';
 import { ipcRenderer } from 'electron';
-import { v4 as uuidv4 } from 'uuid';
 
 import { EventName } from '../../common/enum/EventName';
 import { GoalModel } from '../../common/interface/GoalModel';
 
 const GoalPage: React.FC = () => {
-  const { loading, goals, createGoal, deleteGoal } = useGoal();
+  const { loading, goals, createGoal, deleteGoal } = useGoalCRUD();
 
   return (
     <>
@@ -36,7 +35,7 @@ const GoalPage: React.FC = () => {
   );
 };
 
-const useGoal = () => {
+const useGoalCRUD = () => {
   const [loading, setLoading] = useState(false);
   const [goals, setGoals] = useState<GoalModel[]>([]);
 
@@ -55,7 +54,7 @@ const useGoal = () => {
 
   const createGoal = () => {
     setLoading(true);
-    ipcRenderer.send(EventName.GOAL_ADD, { id: uuidv4(), name: 'Test goal' });
+    ipcRenderer.send(EventName.GOAL_ADD, { name: 'Test goal' });
   };
 
   const deleteGoal = (id: string) => {

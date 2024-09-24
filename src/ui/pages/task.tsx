@@ -1,17 +1,30 @@
 import { useEffect, useState } from 'react';
 import { ipcRenderer } from 'electron';
 
+import PlusIcon from '../components/Icons/PlusIcon';
 import TaskItem from '../components/TaskItem/TaskItem';
+import { ModalName, useModalContext } from '../store/modal-context';
 import { EventName } from '../../common/enum/EventName';
 import { omit } from '../../common/helpers/omit';
 import { TaskModel } from '../../common/interface/TaskModel';
 
+import Button from '../components/Button/Button';
+
 const TaskPage: React.FC = () => {
-  const { loading, tasks } = useTask();
+  const { loading, tasks } = useTaskCRUD();
+
+  const { openModal } = useModalContext();
 
   return (
     <>
-      <h4 className="title">Tasks</h4>
+      <div className="d-flex align-items-center justify-content-space-between mb-4">
+        <h4 className="title">Tasks</h4>
+        <Button type="button" onClick={() => openModal(ModalName.CREATE_TASK)}>
+          <PlusIcon />
+          <span>Add Task</span>
+        </Button>
+      </div>
+
       {loading ? (
         <div>loading...</div>
       ) : (
@@ -25,7 +38,7 @@ const TaskPage: React.FC = () => {
   );
 };
 
-const useTask = () => {
+const useTaskCRUD = () => {
   const [loading, setLoading] = useState(false);
   const [tasks, setTasks] = useState<TaskModel[]>([]);
 

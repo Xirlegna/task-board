@@ -6,7 +6,7 @@ export const listGoals = async () => {
   return data?.goals ? data.goals : [];
 };
 
-export const createGoal = async (goal: GoalModel) => {
+export const createGoal = async (goal: Omit<GoalModel, 'id'>) => {
   const db = Database.getInstance();
   const data = db.getData();
 
@@ -14,7 +14,12 @@ export const createGoal = async (goal: GoalModel) => {
     data.goals = [];
   }
 
-  data.goals.push(goal);
+  const goalCopy: GoalModel = {
+    id: Date.now().toString(16),
+    ...goal,
+  };
+
+  data.goals.push(goalCopy);
 
   db.setData(data);
 

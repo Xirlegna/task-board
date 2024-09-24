@@ -8,7 +8,7 @@ ipcMain.on(EventName.GOAL_LIST, (event) => {
   listGoals().then((res) => event.sender.send(EventName.GOAL_LIST, res));
 });
 
-ipcMain.on(EventName.GOAL_ADD, (event, goal: GoalModel) => {
+ipcMain.on(EventName.GOAL_ADD, (event, goal: Omit<GoalModel, 'id'>) => {
   createGoal(goal).then((res) => event.sender.send(EventName.GOAL_LIST, res));
 });
 
