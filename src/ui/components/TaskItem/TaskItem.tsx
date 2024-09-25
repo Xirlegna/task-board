@@ -1,14 +1,18 @@
 import ClockIcon from '../Icons/ClockIcon';
 import DateIcon from '../Icons/DateIcon';
+import DeleteIcon from '../Icons/DeleteIcon';
 import PencilIcon from '../Icons/PencilIcon';
+import { useTaskEvent } from '../../hooks/useTaskEvent';
 import { TaskModel } from '../../../common/interface/TaskModel';
 
 import './task-item.scss';
 
-type TaskItemProps = Omit<TaskModel, 'id' | 'created_at'>;
+type TaskItemProps = Omit<TaskModel, 'created_at'>;
 
 const TaskItem: React.FC<TaskItemProps> = (props) => {
-  const { name, goal, length, expired_at, platform, skill } = props;
+  const { id, name, goal, length, expired_at, platform, skill } = props;
+
+  const { deleteTask } = useTaskEvent();
 
   return (
     <div className="task-item">
@@ -35,6 +39,9 @@ const TaskItem: React.FC<TaskItemProps> = (props) => {
       <div className="d-flex align-items-center gap-1">
         <button className="task-item__action-btn" type="button">
           <PencilIcon />
+        </button>
+        <button className="task-item__action-btn" type="button" onClick={() => deleteTask(id)}>
+          <DeleteIcon />
         </button>
       </div>
     </div>

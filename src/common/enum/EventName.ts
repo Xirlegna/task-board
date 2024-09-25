@@ -11,4 +11,6 @@ export enum EventName {
 
   /** TASK */
   TASK_LIST = 'task:list',
+  TASK_ADD = 'task:add',
+  TASK_DELETE = 'task:delete',
 }

@@ -1,0 +1,26 @@
+.text-input {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  padding: 8px 16px;
+
+  label {
+    font-size: 16px;
+    color: #828284;
+  }
+
+  input {
+    border: 1px solid #828284;
+    border-radius: 8px;
+    height: 32px;
+    outline: none;
+    padding: 0 16px;
+    font-family: inherit;
+    font-size: 14px;
+
+    &:active, &:focus {
+      border-color: #353535;
+    }
+  }
+}
