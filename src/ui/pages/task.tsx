@@ -1,16 +1,12 @@
-import { useEffect, useState } from 'react';
-import { ipcRenderer } from 'electron';
-
 import Button from '../components/Button/Button';
 import PlusIcon from '../components/Icons/PlusIcon';
 import TaskItem from '../components/TaskItem/TaskItem';
-import { useTaskEvent } from '../hooks/useTaskEvent';
+import { useFetchTasks } from '../hooks/useTaskEvent';
 import { ModalName, useModalContext } from '../store/modal-context';
 import { omit } from '../../common/helpers/omit';
-import { TaskModel } from '../../common/interface/TaskModel';
 
 const TaskPage: React.FC = () => {
-  const { loading, tasks } = useTaskCRUD();
+  const { loading, tasks } = useFetchTasks();
 
   const { openModal } = useModalContext();
 
@@ -35,27 +31,6 @@ const TaskPage: React.FC = () => {
       )}
     </>
   );
-};
-
-const useTaskCRUD = () => {
-  const [loading, setLoading] = useState(false);
-  const [tasks, setTasks] = useState<TaskModel[]>([]);
-
-  const { fetchTaskList } = useTaskEvent();
-
-  useEffect(() => {
-    setLoading(true);
-    fetchTaskList((tasks, loading) => {
-      setTasks(tasks);
-      setLoading(loading);
-    });
-
-    return () => {
-      ipcRenderer.removeAllListeners();
-    };
-  }, []);
-
-  return { loading, tasks };
 };
 
 export default TaskPage;
