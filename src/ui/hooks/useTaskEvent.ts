@@ -4,12 +4,7 @@ import { ipcRenderer } from 'electron';
 import { EventName } from '../../common/enum/EventName';
 import { TaskModel } from '../../common/interface/TaskModel';
 
-const addTask = (
-  task: Omit<
-    TaskModel,
-    'id' | 'goal' | 'length' | 'expired_at' | 'platform' | 'skill'
-  >
-) => {
+const addTask = (task: Omit<TaskModel, 'id' | 'created_at'>) => {
   return ipcRenderer.send(EventName.TASK_ADD, task);
 };
 

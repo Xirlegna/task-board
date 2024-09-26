@@ -4,9 +4,9 @@ import classNames from 'classnames';
 import Backdrop from '../../Backdrop/Backdrop';
 import CloseIcon from '../../Icons/CloseIcon';
 import TextInput from '../../TextInput/TextInput';
-import { useModalContext } from '../../../store/modal-context';
-
 import { useTaskEvent } from '../../../hooks/useTaskEvent';
+import { useModalContext } from '../../../store/modal-context';
+import { dateToTimestamp } from '../../../../common/helpers/date-converter';
 
 import './side-form.scss';
 
@@ -27,6 +27,11 @@ const CreateTaskModal: React.FC = () => {
     const data = Object.fromEntries(formData) as FormState;
     addTask({
       name: data.taskName,
+      expired_at: dateToTimestamp('2024-09-18'),
+      goal: 'Ultimate AWS Certified Cloud Practitioner CLF-C02',
+      length: 33,
+      platform: 'Udemy',
+      skill: 'AWS',
     });
 
     closeModal();

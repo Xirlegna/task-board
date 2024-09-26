@@ -3,8 +3,8 @@ export type TaskModel = {
   name: string;
   goal: string;
   length: number;
-  expired_at: string;
+  expired_at: number;
   platform: string;
   skill: string;
-  created_at?: string;
+  created_at: number;
 };

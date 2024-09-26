@@ -3,6 +3,7 @@ import DateIcon from '../Icons/DateIcon';
 import DeleteIcon from '../Icons/DeleteIcon';
 import PencilIcon from '../Icons/PencilIcon';
 import { useTaskEvent } from '../../hooks/useTaskEvent';
+import { timestampToDate } from '../../../common/helpers/date-converter';
 import { TaskModel } from '../../../common/interface/TaskModel';
 
 import './task-item.scss';
@@ -31,7 +32,7 @@ const TaskItem: React.FC<TaskItemProps> = (props) => {
           </div>
           <div className="task-item__tile">
             <DateIcon />
-            <span>{expired_at}</span>
+            <span>{timestampToDate(expired_at)}</span>
           </div>
         </div>
       </div>
@@ -40,7 +41,11 @@ const TaskItem: React.FC<TaskItemProps> = (props) => {
         <button className="task-item__action-btn" type="button">
           <PencilIcon />
         </button>
-        <button className="task-item__action-btn" type="button" onClick={() => deleteTask(id)}>
+        <button
+          className="task-item__action-btn"
+          type="button"
+          onClick={() => deleteTask(id)}
+        >
           <DeleteIcon />
         </button>
       </div>

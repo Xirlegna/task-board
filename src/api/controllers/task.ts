@@ -31,20 +31,7 @@ export const createTask = async (task: Omit<TaskModel, 'id'>) => {
     data.tasks = [];
   }
 
-  const timestamp = Date.now();
-
-  const taskCopy: TaskModel = {
-    id: timestamp.toString(16),
-    ...task,
-    goal: 'Ultimate AWS Certified Cloud Practitioner CLF-C02',
-    length: 33,
-    expired_at: '2024.09.18',
-    platform: 'Udemy',
-    skill: 'AWS',
-    created_at: timestamp.toString(),
-  };
-
-  data.tasks.push(taskCopy);
+  data.tasks.push({ ...Database.DecoratorTrait(), ...task });
 
   db.setData(data);
 

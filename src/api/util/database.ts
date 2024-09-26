@@ -42,6 +42,15 @@ class Database {
   public setData(data: DB): void {
     fs.writeFileSync(`${BasePath}/db/data.json`, JSON.stringify(data));
   }
+
+  static DecoratorTrait() {
+    const timestamp = Date.now();
+
+    return {
+      id: timestamp.toString(16),
+      created_at: timestamp,
+    };
+  }
 }
 
 export default Database;
