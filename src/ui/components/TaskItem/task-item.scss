@@ -54,6 +54,14 @@
     color: #353535;
     font-size: 14px;
     font-weight: 400;
+
+    .icon-fill-blue {
+      fill: #18fbff;
+    }
+
+    .icon-fill-grey {
+      fill: #353535;
+    }
   }
 
   &__action-btn {
@@ -76,11 +84,11 @@
       color: #353535;
       border-color: #e3e3e3;
       background-color: #ffffff;
-  
+
       .icon-fill-blue {
         fill: #18fbff;
       }
-  
+
       .icon-fill-grey {
         fill: #353535;
       }

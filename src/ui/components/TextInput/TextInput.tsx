@@ -4,18 +4,12 @@ import './text-input.scss';
 
 type TextInputProps = {
   id: string;
-  label: string;
 } & ComponentPropsWithoutRef<'input'>;
 
 const TextInput: React.FC<TextInputProps> = (props) => {
-  const { id, label, ...inputProps } = props;
+  const { id, ...inputProps } = props;
 
-  return (
-    <div className="text-input">
-      <label htmlFor={id}>{label}</label>
-      <input id={id} name={id} {...inputProps} />
-    </div>
-  );
+  return <input className="text-input" id={id} name={id} {...inputProps} />;
 };
 
 export default TextInput;

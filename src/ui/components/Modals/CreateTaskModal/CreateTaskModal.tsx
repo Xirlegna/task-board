@@ -2,8 +2,13 @@ import { FormEvent, useState } from 'react';
 import classNames from 'classnames';
 
 import Backdrop from '../../Backdrop/Backdrop';
+import Button from '../../Button/Button';
+import FormGroup from '../../FormGroup/FormGroup';
+import Label from '../../Label/Label';
 import CloseIcon from '../../Icons/CloseIcon';
+import DateIcon from '../../Icons/DateIcon';
 import TextInput from '../../TextInput/TextInput';
+import TextInputWithIcon from '../../TextInputWithIcon/TextInputWithIcon';
 import { useTaskEvent } from '../../../hooks/useTaskEvent';
 import { useModalContext } from '../../../store/modal-context';
 import { dateToTimestamp } from '../../../../common/helpers/date-converter';
@@ -12,6 +17,7 @@ import './side-form.scss';
 
 type FormState = {
   taskName: string;
+  expiredAt: string;
 };
 
 const CreateTaskModal: React.FC = () => {
@@ -27,7 +33,7 @@ const CreateTaskModal: React.FC = () => {
     const data = Object.fromEntries(formData) as FormState;
     addTask({
       name: data.taskName,
-      expired_at: dateToTimestamp('2024-09-18'),
+      expired_at: dateToTimestamp(data.expiredAt),
       goal: 'Ultimate AWS Certified Cloud Practitioner CLF-C02',
       length: 33,
       platform: 'Udemy',
@@ -59,10 +65,17 @@ const CreateTaskModal: React.FC = () => {
           </button>
         </header>
         <form onSubmit={handleSubmit}>
-          <div>
-            <TextInput id="taskName" label="Name" placeholder="Task name" />
-          </div>
-          <button type="submit">Save</button>
+          <FormGroup>
+            <Label htmlFor="taskName">Name</Label>
+            <TextInput id="taskName" placeholder="Task name" />
+          </FormGroup>
+          <FormGroup>
+            <Label htmlFor="expiredAt">Date</Label>
+            <TextInputWithIcon id="expiredAt" placeholder="YYYY-MM-DD">
+              <DateIcon />
+            </TextInputWithIcon>
+          </FormGroup>
+          <Button type="submit">save</Button>
         </form>
       </div>
     </Backdrop>

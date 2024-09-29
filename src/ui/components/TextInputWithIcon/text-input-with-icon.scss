@@ -1,0 +1,53 @@
+.text-input-with-icon {
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 8px;
+  height: 32px;
+
+  color: #828284;
+  font-size: 14px;
+
+  svg {
+    z-index: 1;
+    margin-left: 16px;
+    margin-right: -38px;
+  }
+
+  input {
+    border-bottom: inherit;
+    width: 100%;
+    border: none;
+    padding-left: 38px;
+    border: 1px solid #828284;
+
+    &:hover {
+      border-color: #353535;
+    }
+
+    &:active,
+    &:focus {
+      border-color: #353535;
+    }
+  }
+
+  .icon-fill-blue {
+    fill: transparent;
+  }
+
+  .icon-fill-grey {
+    fill: #828284;
+  }
+
+  &:focus-within {
+    .icon-fill-blue {
+      fill: #18fbff;
+    }
+
+    .icon-fill-grey {
+      fill: #353535;
+    }
+  }
+}
