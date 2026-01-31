@@ -1,5 +1,5 @@
+import { clsx } from 'clsx';
 import { Link } from 'react-router-dom';
-import classNames from 'classnames';
 
 import './nav-item.scss';
 
@@ -11,7 +11,7 @@ type NavItemProps = {
 
 const NavItem: React.FC<NavItemProps> = ({ children, to, active }) => {
   return (
-    <Link className={classNames({ 'nav-item': true, active })} to={to}>
+    <Link className={clsx({ 'nav-item': true, active })} to={to}>
       {children}
     </Link>
   );
