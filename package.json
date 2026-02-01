@@ -7,10 +7,8 @@
     "package": "webpack --config ./webpack.prod.js && electron-builder build && npx rimraf out",
     "dev": "webpack serve --config webpack.config.js",
     "start": "npm run build && electron ./dist/electron.js",
-    "test": "vitest",
-    "test:watch": "vitest --watch",
-    "test:ui": "vitest --ui",
-    "test:coverage": "vitest --coverage"
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "keywords": [],
   "author": "",
@@ -39,6 +37,11 @@
     "ts-loader": "^9.5.4",
     "typescript": "^5.9.3",
     "webpack": "^5.104.1",
-    "webpack-cli": "^6.0.1"
+    "webpack-cli": "^6.0.1",
+    "storybook": "^10.2.3",
+    "@storybook/react-webpack5": "^10.2.3",
+    "@storybook/addon-webpack5-compiler-swc": "^4.0.2",
+    "@storybook/addon-a11y": "^10.2.3",
+    "@storybook/addon-docs": "^10.2.3"
   }
 }

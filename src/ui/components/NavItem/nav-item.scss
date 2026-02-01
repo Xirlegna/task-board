@@ -14,12 +14,8 @@
   width: 220px;
   border: 1px solid transparent;
 
-  .icon-fill-blue {
-    fill: transparent;
-  }
-  .icon-fill-grey {
-    fill: #828284;
-  }
+  --icon-accent: transparent;
+  --icon-primary: #828284;
 
   i {
     display: inline-block;
@@ -34,24 +30,14 @@
     border-color: #e3e3e3;
     color: #353535;
 
-    .icon-fill-blue {
-      fill: #18fbff;
-    }
-
-    .icon-fill-grey {
-      fill: #353535;
-    }
+    --icon-accent: #18fbff;
+    --icon-primary: #353535;
   }
 
   &:hover {
     color: #353535;
 
-    .icon-fill-blue {
-      fill: #18fbff;
-    }
-
-    .icon-fill-grey {
-      fill: #353535;
-    }
+    --icon-accent: #18fbff;
+    --icon-primary: #353535;
   }
 }

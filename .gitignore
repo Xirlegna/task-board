@@ -2,3 +2,5 @@ coverage/
 dist/
 node_modules/
 package/
+*storybook.log
+storybook-static
