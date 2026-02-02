@@ -19,6 +19,11 @@
     "uuid": "^10.0.0"
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^10.2.3",
+    "@storybook/addon-docs": "^10.2.3",
+    "@storybook/addon-styling-webpack": "^3.0.0",
+    "@storybook/addon-webpack5-compiler-swc": "^4.0.2",
+    "@storybook/react-webpack5": "^10.2.3",
     "@types/react": "^19.2.10",
     "@types/react-dom": "^19.2.3",
     "clsx": "^2.1.1",
@@ -34,14 +39,11 @@
     "rimraf": "^6.1.2",
     "sass": "^1.97.3",
     "sass-loader": "^16.0.0",
+    "storybook": "^10.2.3",
+    "style-loader": "^4.0.0",
     "ts-loader": "^9.5.4",
     "typescript": "^5.9.3",
     "webpack": "^5.104.1",
-    "webpack-cli": "^6.0.1",
-    "storybook": "^10.2.3",
-    "@storybook/react-webpack5": "^10.2.3",
-    "@storybook/addon-webpack5-compiler-swc": "^4.0.2",
-    "@storybook/addon-a11y": "^10.2.3",
-    "@storybook/addon-docs": "^10.2.3"
+    "webpack-cli": "^6.0.1"
   }
 }

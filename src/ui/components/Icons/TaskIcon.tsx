@@ -33,14 +33,14 @@ const TaskIcon: React.FC = () => {
         fill="var(--icon-primary)"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M7 4C5.89543 4 5 4.89543 5 6V8C5 9.10457 5.89543 10 7 10H9C10.1046 10 11 9.10457 11 8V6C11 4.89543 10.1046 4 9 4H7ZM7 6H9V8H7V6Z"
         fill="var(--icon-primary)"
       />
       <path
-        fill-rule="evenodd"
-        clip-rule="evenodd"
+        fillRule="evenodd"
+        clipRule="evenodd"
         d="M7 13C5.89543 13 5 13.8954 5 15V17C5 18.1046 5.89543 19 7 19H9C10.1046 19 11 18.1046 11 17V15C11 13.8954 10.1046 13 9 13H7ZM7 15H9V17H7V15Z"
         fill="var(--icon-primary)"
       />

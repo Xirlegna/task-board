@@ -1,6 +1,4 @@
-import BoardIcon from './BoardIcon';
-import GoalIcon from './GoalIcon';
-import TaskIcon from './TaskIcon';
+import * as Icons from "./index";
 
 export default {
   title: 'Icons/Gallery',
@@ -19,14 +17,11 @@ export const IconGallery = () => (
       gap: 24,
     }}
   >
-    <span style={iconStyle}>
-      <BoardIcon />
-    </span>
-    <span style={iconStyle}>
-      <GoalIcon />
-    </span>
-    <span style={iconStyle}>
-      <TaskIcon />
-    </span>
+    {Object.entries(Icons).map(([name, Icon]) => (
+      <span key={name} style={iconStyle}>
+        <Icon />
+        <span>{name}</span>
+      </span>
+    ))}
   </div>
 );
